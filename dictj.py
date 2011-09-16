@@ -6,7 +6,6 @@ alphabet_dict = {'a':1, 'b':1, 'c':1, 'd':1, 'e':1, 'f':3, 'g':3, 'h':2, 'i':1, 
 #print result_dict['g']  
 #masterword = function-call()
 
-#PROCESSED = "C:\\Python_way\\mprocessed\\"
 
 masterlist = []
 word_list = []
@@ -24,7 +23,8 @@ def make_tree(word):
      for l in word: tree[l] +=1
      return tree
 
-masterpath = os.path.join(currentdir, "bb\\brit-a-z.txt")
+masterpath = os.path.join(currentdir, "bb")
+masterpath = os.path.join(masterpath, "brit-a-z.txt")
 def start_up():
      wordnlist = open(masterpath ,'r')
      temp_list = []
@@ -48,9 +48,8 @@ def start_up():
      if temp_list:
          word_list.append(temp_list)
      #random.shuffle(masterlist)
+
 start_up()
-#print masterlist
-#print word_list
 
 #list_path = os.path.join(currentdir, "bb\\mprocessed\\new\\")
 def processed (my_tree, my_word):
@@ -67,10 +66,9 @@ def update_searchlist(wordi):
       searchwordlist = sum([ processed(tree, wordn)  for sub_list in word_list for wordn  in sub_list if given_letters.issuperset(frozenset(wordn)) ], [])
 
      
-update_searchlist("abased")
-print searchwordlist    
+#update_searchlist("abased")
+#print searchwordlist    
 
-#searchwordlist = ["house","home","bush","skill","kill","kills","fool","buttle","deal","kings","woe","foo","king","use","bus","hoe","led","but"]
 
 searchedwordset = set()
 score_value = 0
@@ -103,5 +101,4 @@ def word_not_found(word):
         return 0
       else:
         return 1
-#print compute_result(["u","s","e","1"])
-#print searchedwordset
+

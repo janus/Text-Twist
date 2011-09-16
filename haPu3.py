@@ -153,7 +153,7 @@ class Message:
             tkMessageBox.showinfo("Have already seen","You have seen this word")
             #  tkMessage("Have already seen")
           elif -2 == resultvalue:
-            tkMessageBox.showinfo("That is not in dictonary", "You word is wrong")
+            tkMessageBox.showinfo("That is not in dictonary", "Your word is wrong")
               #tkMessage("That is not in dictonary")
           else:
                  score_label[0]["text"] = str(score_value)
@@ -279,8 +279,8 @@ def create_gui():
        #mastercount
        next_game = 0
        mastercount = mastercount  + 1
-       gui_object .reset_inits(masterword[mastercount])
-       gui_object .update_gui(masterword[mastercount])
+       gui_object.reset_inits(masterword[mastercount])
+       gui_object.update_gui(masterword[mastercount])
        root.bell()
        
 #In order to loop continuously       
@@ -307,8 +307,6 @@ def update_clock():
     else:     # return 
           pass
     Label(root, text=now).grid(row=6,column=0, columnspan=1, rowspan=1)
-        #self.label.configure(text=now)
-        #mynum = mynum + 1
     root.after(1000, update_clock)
   
 def main():
