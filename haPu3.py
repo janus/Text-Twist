@@ -34,9 +34,7 @@ IMAGE_DIR = os.path.join(currentdir, "image") #C:\\Python_way\\image\\"
 
 def nextword(n):
     "return a word from the master list"
-    if n == masterlen:
-       return masterword[0]
-    return masterword[n]
+    return (masterword[n], masterword[0])[ n == masterlen ]
      
 
 wordi = nextword(mycount) #Initialize wordi
@@ -110,10 +108,8 @@ class Message:
           temp = upmessage[:]
           random.shuffle(upmessage)
           for i, val in enumerate(upmessage):
-               if val == "1":
-                  self.perform_image_unbind(i, temp)
-               else:
-                  self.perform_image_bind(i, temp)
+                  self.perform_image_unbind(i, temp) if val == "1" else self.perform_image_bind(i, temp)
+ 
                  
     def char_tok(self,word_new):
           "Turn a word into a list of characters "
@@ -189,8 +185,7 @@ class Message:
          global mastercount
          global freeze_timer
          random.shuffle(masterword)
-         mastercount = 0
-         dictj.score_value = 0
+         mastercount , dictj.score_value = (0,0)
          self.update_gui(masterword[mastercount])
          score_label[0]["text"] = str(dictj.score_value)
          freeze_timer = 0
@@ -201,8 +196,7 @@ def create_image( cha):
       listimagephoto.append(photoimage)
       return photoimage
       
-# This is where the gui is created and all the artifacts
-      
+
 def create_gui():
      "This is where the gui is created and all the other artifacts"
      global wordi
