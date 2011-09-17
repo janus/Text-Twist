@@ -21,6 +21,7 @@ def make_tree(word):
 
 masterpath = os.path.join(currentdir, "bb")
 masterpath = os.path.join(masterpath, "brit-a-z.txt")
+
 def start_up():
      wordnlist = open(masterpath ,'r')
      temp_list = []
@@ -77,6 +78,6 @@ def compute_result(downmessage):
                     return -2
                     
 def word_not_found(word):
-      return  word not in searchedwordset:
+      return  word not in searchedwordset
 
 
